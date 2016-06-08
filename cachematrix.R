@@ -4,7 +4,8 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-	## creates a matrix that stores its inverse in cache
+	## creates a list of functions that allow to store 
+	## the values of a matrix and its inverse (and to get them, of course)
         inv <- NULL
         set <- function(y) {
                 x <<- y
@@ -23,6 +24,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+	## If it is already cached in x, retrieve it from there
         inv <- x$getinverse()
         if(!is.null(inv)) {
                 message("getting cached data")
